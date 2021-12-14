@@ -65,4 +65,4 @@ app.get("/posts", async(req, res) => {
     }
 })
 
-app.listen(6060, console.log("on 6060"))
+app.listen(process.env.PORT || 6060, console.log("on 6060"))
