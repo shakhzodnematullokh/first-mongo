@@ -25,7 +25,7 @@ const PostsSchema = new Schema ({
 
 const posts = mongoose.model("PostModel", PostsSchema)
 
-app.get("/users", async(req, res) => {
+app.get("/users", async(_, res) => {
     try {
         const userInfo = await users.find()
         res.send(userInfo)
@@ -56,7 +56,7 @@ app.post("/newPost", async(req, res) => {
     }
 })
 
-app.get("/posts", async(req, res) => {
+app.get("/posts", async(_, res) => {
     try {
         const postInfo = await posts.find().populate("author_id")
         res.send(postInfo)
@@ -65,4 +65,4 @@ app.get("/posts", async(req, res) => {
     }
 })
 
-app.listen(process.env.PORT || 6060, console.log("on 6060"))
+app.listen(process.env.PORT || 6060)
